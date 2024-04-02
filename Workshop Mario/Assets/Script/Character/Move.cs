@@ -59,7 +59,10 @@ public class Move : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         peutSauter = true;
-        StartCoroutine(Vibration(0.2f, 0.125f));
+        if (Gamepad.current != null)
+        {
+            StartCoroutine(Vibration(0.2f, 0.125f));
+        }
     }
 
     public void Sauter()
