@@ -43,7 +43,7 @@ public class Move : MonoBehaviour
         if (callbackContext.started)
         {
             GameObject newProjectile = Instantiate(attaqueProjectile);
-            newProjectile.transform.position = transform.position + new Vector3(2, 0, 0);
+            newProjectile.transform.position = transform.position + new Vector3(0.5f, 0, 0);
         }
     }
 

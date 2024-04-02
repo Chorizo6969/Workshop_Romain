@@ -8,7 +8,7 @@ public class attackOndeMove : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.4f);
     }
 
     void FixedUpdate()
