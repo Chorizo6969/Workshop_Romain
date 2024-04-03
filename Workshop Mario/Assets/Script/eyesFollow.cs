@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class eyesFollow : MonoBehaviour
 {
-    private GameObject player;
+    private GameObject joueur;
 
     private void Start()
     {
-        player = FindAnyObjectByType<Move>().gameObject;
+        joueur = FindAnyObjectByType<Move>().gameObject;
     }
 
     private void Update()
     {
         // Déterminez la direction du point cible par rapport à la position actuelle de l'objet
-        Vector2 directionToTarget = player.transform.position - this.transform.position;
+        Vector2 directionToTarget = joueur.transform.position - this.transform.position;
 
         // Calculez l'angle en radians à partir de la direction vers le point cible
         float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;

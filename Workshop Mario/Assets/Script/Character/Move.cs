@@ -13,15 +13,18 @@ public class Move : MonoBehaviour
     //[SerializeField] private float ;
 
     [SerializeField] private GameObject attaqueProjectile;
-    [SerializeField] private GameObject shieldObject;
+    [SerializeField] private GameObject bouclierObjet;
     [SerializeField] private GameObject spawner;
+    [SerializeField] private GameObject jetPackFlamme;
+
+    [SerializeField] private ParticleSystem particuleFeu;
 
     [SerializeField] private bool peutSauter;
 
     [SerializeField] private bool appuiSurBoutonSaut;
 
     [SerializeField] private bool peutUtiliserJetpack;
-
+    
     private Vector2 stickGaucheAxeX;
 
     [SerializeField] private bool utilisejetpack;
@@ -31,10 +34,12 @@ public class Move : MonoBehaviour
 
     private void Start()
     {
-        shieldObject = Instantiate(shieldObject);
-        shieldObject.SetActive(false);
-        shieldObject.transform.position = spawner.transform.position;
-        shieldObject.transform.parent = spawner.transform;
+        bouclierObjet = Instantiate(bouclierObjet);
+        bouclierObjet.SetActive(false);
+        bouclierObjet.transform.position = spawner.transform.position;
+        bouclierObjet.transform.parent = spawner.transform;
+
+        particuleFeu.Stop();
     }
 
     public void OnMove(InputAction.CallbackContext callbackContext)
@@ -46,9 +51,9 @@ public class Move : MonoBehaviour
     {
         if (callbackContext.started)
         {
+            appuiSurBoutonSaut = true;
             if (peutSauter)
             {
-                appuiSurBoutonSaut = true;
                 Sauter();
             }
             else if (!peutSauter)
@@ -61,7 +66,6 @@ public class Move : MonoBehaviour
         if (callbackContext.canceled)
         {
             appuiSurBoutonSaut = false;
-            peutUtiliserJetpack = false;
             utilisejetpack = false;
         }
     }
@@ -70,11 +74,11 @@ public class Move : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            shieldObject.SetActive(true);
+            bouclierObjet.SetActive(true);
         }
         if (callbackContext.canceled)
         {
-            shieldObject.SetActive(false);
+            bouclierObjet.SetActive(false);
         }
     }
 
@@ -112,16 +116,24 @@ public class Move : MonoBehaviour
 
         if (peutUtiliserJetpack && carbu > 0)
         {
-            carbu -= Time.deltaTime * 50;
-            if (carbu < 0) { carbu = 0; }
-            utilisejetpack = true;
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up*15);
-            if (utilisejetpack && Gamepad.current != null && carbu > 0)
+            if (appuiSurBoutonSaut)
+            {
+                jetPackFlamme.SetActive(true);
+                carbu -= Time.deltaTime * 50;
+                if (carbu < 0) { carbu = 0; }
+                utilisejetpack = true;
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up*15);
+                particuleFeu.Play();
+            }
+
+            if (utilisejetpack && carbu > 0)
             {
                 Gamepad.current.SetMotorSpeeds(0.2f, 0.2f);
             }
-            else
+            else /*if (!appuiSurBoutonSaut && !estEnCollision)*/
             {
+                jetPackFlamme.SetActive(false);
+                particuleFeu.Stop();
                 Gamepad.current.SetMotorSpeeds(0, 0);
             }
         }
@@ -130,10 +142,13 @@ public class Move : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         peutSauter = true;
+        peutUtiliserJetpack = false;
         if (Gamepad.current != null)
         {
             StartCoroutine(Vibration(0.2f, 0.125f));
         }
+        jetPackFlamme.SetActive(false);
+        particuleFeu.Stop();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -143,6 +158,10 @@ public class Move : MonoBehaviour
         {
             carbu = maxCarbu;
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
     }
 
     public void Sauter()
@@ -157,4 +176,12 @@ public class Move : MonoBehaviour
         yield return new WaitForSeconds(temps);
         Gamepad.current.SetMotorSpeeds(0, 0);
     }
+
+    IEnumerator EteindreFlamme()
+    {
+        yield return new WaitForSeconds(1);
+        jetPackFlamme.SetActive(false);
+    }
+
+    
 }
