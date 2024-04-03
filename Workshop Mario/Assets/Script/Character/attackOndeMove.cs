@@ -13,6 +13,6 @@ public class attackOndeMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(Vector2.up * Time.deltaTime * vitesse);
+        transform.Translate(Vector2.right * Time.deltaTime * vitesse);
     }
 }
