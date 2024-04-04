@@ -8940,7 +8940,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.37, y: -0.29999995, z: -10}
+  m_LocalPosition: {x: 61.12, y: -0.3599999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18219,7 +18219,6 @@ GameObject:
   - component: {fileID: 1262038169}
   - component: {fileID: 1262038168}
   - component: {fileID: 1262038171}
-  - component: {fileID: 1262038172}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -18288,7 +18287,7 @@ Transform:
   m_GameObject: {fileID: 1262038164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.37, y: -2.3, z: 0}
+  m_LocalPosition: {x: 60.12, y: -2.36, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -18389,7 +18388,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.49, y: 0.61}
+    oldSize: {x: 0.32, y: 0.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -18419,22 +18418,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &1262038172
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262038164}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 77731d2b9c36a3644bdf51d8aecf9226, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 77731d2b9c36a3644bdf51d8aecf9226, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1262047385
 GameObject:
   m_ObjectHideFlags: 0
@@ -33617,7 +33600,7 @@ Transform:
   m_GameObject: {fileID: 1669928444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.37, y: -0.29999995, z: -10}
+  m_LocalPosition: {x: 61.12, y: -0.3599999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34989,7 +34972,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 1766146884}
   _swordEmpty: {fileID: 21300000, guid: 172305465f2722c4083b2318493483b1, type: 3}
   _fondu: {fileID: 1201767377}
-  _sword: {fileID: 1262038172}
+  _animator: {fileID: 1262038171}
 --- !u!1 &1766152951
 GameObject:
   m_ObjectHideFlags: 0

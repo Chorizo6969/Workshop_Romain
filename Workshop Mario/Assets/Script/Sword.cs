@@ -1,5 +1,4 @@
 using UnityEngine;
-using Cinemachine;
 using System.Collections;
 
 public class Sword : MonoBehaviour
@@ -11,13 +10,13 @@ public class Sword : MonoBehaviour
     [SerializeField]
     private Animation _fondu;
     [SerializeField]
-    private Animation _sword;
+    private Animator _animator;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Player"))
         {
-            _sword.Play();
+            //_animator.SetBool("IsSword", true);
             StartCoroutine(Delay());
         }
     }
@@ -25,7 +24,10 @@ public class Sword : MonoBehaviour
     {
         _fondu.Play();
         yield return new WaitForSeconds(2);
+       // _animator.SetBool("IsSword", false);
         _spriteRenderer.sprite = _swordEmpty;
         GetComponent<BoxCollider2D>().enabled = false;
     }
+
+
 }

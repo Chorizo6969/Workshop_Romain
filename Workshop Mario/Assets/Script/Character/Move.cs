@@ -44,8 +44,12 @@ public class Move : MonoBehaviour
         particuleFeu.Stop();
 
         animator = GetComponent<Animator>();
+        Debug.Log("caca");
     }
-
+    public void jsp()
+    {
+        Debug.Log("hfsdgez");
+    }
     public void OnMove(InputAction.CallbackContext callbackContext)
     {
         stickGaucheAxeX = callbackContext.ReadValue<Vector2>();
