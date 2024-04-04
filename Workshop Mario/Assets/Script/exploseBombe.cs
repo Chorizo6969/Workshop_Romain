@@ -5,6 +5,7 @@ using UnityEngine;
 public class exploseBombe : MonoBehaviour
 {
     [SerializeField] private string tagCible;
+    [SerializeField] private GameObject KABOOM;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,8 @@ public class exploseBombe : MonoBehaviour
             Destroy(other.GetComponent<BoxCollider2D>());
             Destroy(other.GetComponent<Rigidbody2D>());
             other.GetComponent<Animator>().Play("explode");
+            GameObject newKaboom = Instantiate(KABOOM);
+            newKaboom.transform.position = other.transform.position;
             Destroy(other.gameObject, 0.31f);
         }
     }

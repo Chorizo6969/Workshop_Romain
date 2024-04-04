@@ -29,8 +29,8 @@ public class Move : MonoBehaviour
 
     [SerializeField] private bool utilisejetpack;
 
-    [SerializeField] private float carbu;
-    [SerializeField] private float maxCarbu;
+    public float carbu;
+    public float maxCarbu;
 
     private Animator animator;
 

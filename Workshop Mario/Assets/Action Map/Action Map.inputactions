@@ -40,6 +40,51 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "cheatCode1",
+                    "type": "Button",
+                    "id": "5dd031ca-a7d4-4aa0-8a29-febe81a7223f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "cheatCode2",
+                    "type": "Button",
+                    "id": "47f9c299-2a3c-49a4-bdc8-f7184553b4a2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "cheatCode3",
+                    "type": "Button",
+                    "id": "ef9d3b31-fabf-4319-b29d-578d17a1ddcf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "cheatCode4",
+                    "type": "Button",
+                    "id": "33ddd5bf-18e9-43dc-b7f3-c9854a20545f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "cheatCode5",
+                    "type": "Button",
+                    "id": "79f537c3-5ac9-4799-8d12-d19a5bacc121",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -238,6 +283,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89be7837-ceea-49a9-9124-1610474638dc",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cff27a4a-2c1b-4eee-a10c-4a5b2e287985",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26c774e6-38a4-47cd-88b2-5a194749404a",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca27a860-a391-40df-ae4a-9575d41a8b96",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc59cec0-f37e-42a1-b5c7-08eea51bec80",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

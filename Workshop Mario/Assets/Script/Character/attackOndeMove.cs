@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class attackOndeMove : MonoBehaviour
 {
@@ -27,7 +28,11 @@ public class attackOndeMove : MonoBehaviour
     {
         if (collision.CompareTag("PORTE"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Animator>().Play("doorDisappear");
+            Destroy(collision.gameObject.GetComponent<TilemapCollider2D>());
+            Destroy(collision.gameObject.GetComponent<Rigidbody2D>());
+            Destroy(collision.gameObject.GetComponent<CompositeCollider2D>());
+            Destroy(collision.gameObject, 1);
         }
     }
 }
