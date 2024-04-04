@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Ennemy: MonoBehaviour
 {
+    [SerializeField] private Life _life;
     public Transform _targetPosition;
     public Transform _secondTarget;
     public int speed = 5;
@@ -32,6 +33,14 @@ public class Ennemy: MonoBehaviour
                 _spriteRenderer.flipX = false;
                 target = _targetPosition;
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == ("Player"))
+        {
+            _life.take_damages(20);
         }
     }
 }
