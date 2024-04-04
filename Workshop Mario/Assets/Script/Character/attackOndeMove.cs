@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class attackOndeMove : MonoBehaviour
 {
-    [SerializeField] private int vitesse;
+    [SerializeField] private float delai = 0.5f;
 
     private void Start()
     {
-        Destroy(gameObject, 0.4f);
+        gameObject.SetActive(false);
     }
 
-    void FixedUpdate()
+    private void OnEnable()
     {
-        transform.Translate(Vector2.right * Time.deltaTime * vitesse);
+        gameObject.SetActive(true);
+        StartCoroutine(Attend());
+    }
+
+    IEnumerator Attend()
+    {
+        yield return new WaitForSeconds(delai);
+        gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PORTE"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

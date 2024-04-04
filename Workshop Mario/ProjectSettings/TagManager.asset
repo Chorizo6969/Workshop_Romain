@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - bombe
+  - PORTE
   layers:
   - Default
   - TransparentFX

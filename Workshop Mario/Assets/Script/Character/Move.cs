@@ -32,6 +32,8 @@ public class Move : MonoBehaviour
     [SerializeField] private float carbu;
     [SerializeField] private float maxCarbu;
 
+    private Animator animator;
+
     private void Start()
     {
         bouclierObjet = Instantiate(bouclierObjet);
@@ -40,6 +42,8 @@ public class Move : MonoBehaviour
         bouclierObjet.transform.parent = spawner.transform;
 
         particuleFeu.Stop();
+
+        animator = GetComponent<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext callbackContext)
@@ -86,9 +90,7 @@ public class Move : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            GameObject newProjectile = Instantiate(attaqueProjectile);
-            newProjectile.transform.position = spawner.transform.position;
-            newProjectile.transform.rotation = spawner.transform.rotation;
+            attaqueProjectile.SetActive(true);
         }
     }
 
@@ -96,6 +98,15 @@ public class Move : MonoBehaviour
     {
         if (stickGaucheAxeX.x != 0)
         {
+            if (!utilisejetpack)
+            {
+                animator.SetBool("IsRunning", true);
+            }
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
+            
             if (stickGaucheAxeX.x > 0)
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -106,6 +117,10 @@ public class Move : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 transform.Translate(Time.deltaTime * vitese * new Vector2(-stickGaucheAxeX.x, 0));
             }
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
         }
 
 
@@ -182,6 +197,4 @@ public class Move : MonoBehaviour
         yield return new WaitForSeconds(1);
         jetPackFlamme.SetActive(false);
     }
-
-    
 }
