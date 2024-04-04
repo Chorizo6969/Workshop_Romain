@@ -49,6 +49,14 @@ public class Move : MonoBehaviour
     public void OnMove(InputAction.CallbackContext callbackContext)
     {
         stickGaucheAxeX = callbackContext.ReadValue<Vector2>();
+        if (!utilisejetpack)
+        {
+            animator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+        }
     }
 
     public void OnJump(InputAction.CallbackContext callbackContext)
@@ -90,7 +98,9 @@ public class Move : MonoBehaviour
     {
         if (callbackContext.started)
         {
+            animator.SetBool("IsAttack", true);
             attaqueProjectile.SetActive(true);
+            StartCoroutine(AttendAttack());
         }
     }
 
@@ -98,14 +108,7 @@ public class Move : MonoBehaviour
     {
         if (stickGaucheAxeX.x != 0)
         {
-            if (!utilisejetpack)
-            {
-                animator.SetBool("IsRunning", true);
-            }
-            else
-            {
-                animator.SetBool("IsRunning", false);
-            }
+            
             
             if (stickGaucheAxeX.x > 0)
             {
@@ -196,5 +199,11 @@ public class Move : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         jetPackFlamme.SetActive(false);
+    }
+
+    IEnumerator AttendAttack()
+    {
+        yield return new WaitForSeconds(0.41f);
+        animator.SetBool("IsAttack", false);
     }
 }
