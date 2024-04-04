@@ -5631,7 +5631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315681640}
   - component: {fileID: 315681641}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10395,7 +10395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 671153838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shield and spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18032,7 +18032,7 @@ GameObject:
   - component: {fileID: 1262038169}
   - component: {fileID: 1262038168}
   - component: {fileID: 1262038171}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -19114,7 +19114,7 @@ GameObject:
   - component: {fileID: 1306707114}
   - component: {fileID: 1306707116}
   - component: {fileID: 1306707115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire Zone Collide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19845,7 +19845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344657105}
   - component: {fileID: 1344657106}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: change
   m_Icon: {fileID: 0}
@@ -22912,7 +22912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544936684}
   - component: {fileID: 1544936685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32372,7 +32372,7 @@ GameObject:
   - component: {fileID: 1600780297}
   - component: {fileID: 1600780298}
   - component: {fileID: 1600780299}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attack Hit Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68152,7 +68152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906586985}
   - component: {fileID: 1906586986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject (1)
   m_TagString: change
   m_Icon: {fileID: 0}
@@ -70062,7 +70062,7 @@ GameObject:
   - component: {fileID: 2070296794}
   - component: {fileID: 2070296792}
   - component: {fileID: 2070296793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JetPack fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
