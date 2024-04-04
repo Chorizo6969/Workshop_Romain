@@ -44,7 +44,6 @@ public class Move : MonoBehaviour
         particuleFeu.Stop();
 
         animator = GetComponent<Animator>();
-        Debug.Log("caca");
     }
     public void jsp()
     {
