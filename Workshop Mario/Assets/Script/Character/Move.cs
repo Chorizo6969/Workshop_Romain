@@ -102,6 +102,7 @@ public class Move : MonoBehaviour
     {
         if (callbackContext.started)
         {
+            StartCoroutine(Vibration(0.2f, 0.25f));
             animator.SetBool("IsAttack", true);
             attaqueProjectile.SetActive(true);
             StartCoroutine(AttendAttack());
