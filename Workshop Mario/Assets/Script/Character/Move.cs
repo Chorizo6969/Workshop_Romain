@@ -45,7 +45,10 @@ public class Move : MonoBehaviour
 
         animator = GetComponent<Animator>();
     }
-
+    public void jsp()
+    {
+        Debug.Log("hfsdgez");
+    }
     public void OnMove(InputAction.CallbackContext callbackContext)
     {
         stickGaucheAxeX = callbackContext.ReadValue<Vector2>();
