@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Move : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float vitese;
     [SerializeField] private float jetPackVitesse;
     [SerializeField] private float forceSaut;
@@ -26,6 +27,8 @@ public class Move : MonoBehaviour
     [SerializeField] private bool peutUtiliserJetpack;
     
     private Vector2 stickGaucheAxeX;
+    public bool _canMove = true;
+    public Animation anim;
 
     [SerializeField] private bool utilisejetpack;
 
@@ -45,10 +48,7 @@ public class Move : MonoBehaviour
 
         animator = GetComponent<Animator>();
     }
-    public void jsp()
-    {
-        Debug.Log("hfsdgez");
-    }
+
     public void OnMove(InputAction.CallbackContext callbackContext)
     {
         stickGaucheAxeX = callbackContext.ReadValue<Vector2>();
@@ -110,7 +110,7 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (stickGaucheAxeX.x != 0)
+        if (stickGaucheAxeX.x != 0 && _canMove == true)
         {
             
             
@@ -163,6 +163,10 @@ public class Move : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == ("bombe"))
+        {
+            //rb.AddForce(new Vector3(-200,200,0));
+        }
         peutSauter = true;
         peutUtiliserJetpack = false;
         if (Gamepad.current != null)
@@ -182,16 +186,16 @@ public class Move : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-    }
-
     public void Sauter()
     {
         peutSauter = false;
         GetComponent<Rigidbody2D>().AddForce(forceSaut * Vector2.up);
     }
 
+    public void MeurtParPitie()
+    {
+        anim.Play();
+    }
     IEnumerator Vibration(float temps, float speedValue)
     {
         Gamepad.current.SetMotorSpeeds(speedValue, speedValue);

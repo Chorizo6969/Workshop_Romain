@@ -12,6 +12,8 @@ public class Life : MonoBehaviour //Script qui gère la vie du joueur, les degats
     public Ease functionName;
     public Slider slider_latence;
     public GameObject Player;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Move movement;
 
     public void Start()
     {
@@ -36,7 +38,9 @@ public class Life : MonoBehaviour //Script qui gère la vie du joueur, les degats
     {
         if (Currenthealth <= 0)
         {
-            Destroy(Player);
+            movement._canMove = false;
+            Player.GetComponent<Animator>().enabled = false;
+            movement.MeurtParPitie();
         }
     }
 }

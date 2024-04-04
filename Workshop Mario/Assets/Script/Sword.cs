@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Animations;
 
 public class Sword : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Sword : MonoBehaviour
     private GameObject _player;
     [SerializeField]
     private AudioSource _sword;
+    [SerializeField]
+    private AnimatorController _controller;
+    public bool _isSword = true;
     private int speed = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,15 +32,18 @@ public class Sword : MonoBehaviour
             StartCoroutine(Delay());
         }
     }
+
     IEnumerator Delay()
     {
         _fondu.Play();
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2.5f);
+        _spriteRenderer.sprite = _swordEmpty;
+        yield return new WaitForSeconds(1);
         _sword.Play();
         yield return new WaitForSeconds(1.5f);
         _animator.SetBool("IsSword", false);
-        _spriteRenderer.sprite = _swordEmpty;
         GetComponent<BoxCollider2D>().enabled = false;
+        _animator.runtimeAnimatorController = _controller;
         _player.GetComponent<Move>().enabled = true;
     }
 

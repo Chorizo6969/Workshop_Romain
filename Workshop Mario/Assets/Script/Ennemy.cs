@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +10,7 @@ public class Ennemy: MonoBehaviour
     public Transform _secondTarget;
     public int speed = 5;
     private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Animator _animator;
 
     private Transform target;
 
@@ -40,7 +43,15 @@ public class Ennemy: MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
+            _animator.SetBool("IsHurt", true);
             _life.take_damages(20);
+            StartCoroutine(Delay());
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f);
+        _animator.SetBool("IsHurt", false);
     }
 }
