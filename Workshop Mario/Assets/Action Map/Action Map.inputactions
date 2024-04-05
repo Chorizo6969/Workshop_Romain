@@ -299,8 +299,30 @@
                 },
                 {
                     "name": "",
+                    "id": "dc2cecd6-8322-4842-8dc8-9857ae47a9e8",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cff27a4a-2c1b-4eee-a10c-4a5b2e287985",
                     "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ab3f586-67d4-45d1-90ca-27a6d928fb73",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "any",
@@ -321,6 +343,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b65c5c24-3d39-4b9b-bbed-6bf2676ca6f6",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ca27a860-a391-40df-ae4a-9575d41a8b96",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
@@ -332,8 +365,30 @@
                 },
                 {
                     "name": "",
+                    "id": "f5f60ef7-531b-49c6-8510-b22a6a4e4c06",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cc59cec0-f37e-42a1-b5c7-08eea51bec80",
                     "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "any",
+                    "action": "cheatCode5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02991f80-2b64-44cd-8a91-e02cf4debb58",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "any",
