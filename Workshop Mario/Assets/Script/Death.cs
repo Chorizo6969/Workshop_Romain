@@ -1,5 +1,4 @@
 using UnityEngine;
-using Cinemachine;
 
 public class Death : MonoBehaviour
 {
@@ -12,9 +11,17 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.transform.position = _newSpawn;
             ScreenShake.Instance.Shake(10f, 0.1f);
-            _life.take_damages(25);
+            if (_life.Currenthealth > 25)
+            {
+                _life.take_damages(25);
+                collision.transform.position = _newSpawn;
+            }
+            else
+            {
+                _life.take_damages(25);
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

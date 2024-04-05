@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,9 +39,8 @@ public class Life : MonoBehaviour //Script qui gère la vie du joueur, les degats
     {
         if (Currenthealth <= 0)
         {
-            movement._canMove = false;
-            Player.GetComponent<Animator>().enabled = false;
-            movement.MeurtParPitie();
+            _animator.SetBool("IsDeath", true);
+            Destroy(Player.GetComponent<Move>());
         }
     }
 }

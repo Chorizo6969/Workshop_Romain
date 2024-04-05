@@ -19,8 +19,6 @@ public class Move : MonoBehaviour
     [SerializeField] private GameObject jetPackFlamme;
 
     [SerializeField] private List<GameObject> swordSong;
-
-    [SerializeField] private AudioSource jetpackSong;
     [SerializeField] private AudioSource fallingSong;
 
     [SerializeField] private ParticleSystem particuleFeu;
@@ -33,6 +31,7 @@ public class Move : MonoBehaviour
     
     private Vector2 stickGaucheAxeX;
     public bool _canMove = true;
+    public bool bool_Sword;
     public Animation anim;
 
     [SerializeField] private bool utilisejetpack;
@@ -104,7 +103,7 @@ public class Move : MonoBehaviour
 
     public void OnAttaque(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.started)
+        if (callbackContext.started && bool_Sword == true)
         {
             StartCoroutine(Vibration(0.2f, 0.25f));
             animator.SetBool("IsAttack", true);
@@ -200,10 +199,6 @@ public class Move : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(forceSaut * Vector2.up);
     }
 
-    public void MeurtParPitie()
-    {
-        anim.Play();
-    }
     IEnumerator Vibration(float temps, float speedValue)
     {
         Gamepad.current.SetMotorSpeeds(speedValue, speedValue);
@@ -219,7 +214,7 @@ public class Move : MonoBehaviour
 
     IEnumerator AttendAttack()
     {
-        yield return new WaitForSeconds(0.41f);
+        yield return new WaitForSeconds(0.10f);
         animator.SetBool("IsAttack", false);
     }
 }
