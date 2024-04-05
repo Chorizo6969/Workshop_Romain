@@ -31,6 +31,7 @@ public class Move : MonoBehaviour
     
     private Vector2 stickGaucheAxeX;
     public bool _canMove = true;
+    public bool isflying = false;
     public bool bool_Sword;
     public Animation anim;
 
@@ -142,7 +143,7 @@ public class Move : MonoBehaviour
             Sauter();
         }
 
-        if (peutUtiliserJetpack && carbu > 0)
+        if (peutUtiliserJetpack && carbu > 0 && isflying == true)
         {
             if (appuiSurBoutonSaut)
             {
