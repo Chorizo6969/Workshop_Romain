@@ -182,6 +182,13 @@ public class Move : MonoBehaviour
         }
         jetPackFlamme.SetActive(false);
         particuleFeu.Stop();
+
+        if (collision.gameObject.CompareTag("jetPack"))
+        {
+            collision.gameObject.transform.parent = transform;
+            collision.gameObject.transform.localPosition = new Vector3(-0.048500061f, 0.0649995804f, 0);
+            Destroy(collision.gameObject.GetComponent<ParticleSystem>());
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
