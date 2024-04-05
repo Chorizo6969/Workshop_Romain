@@ -43,9 +43,12 @@ public class Ennemy: MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
-            _animator.SetBool("IsHurt", true);
-            _life.take_damages(20);
-            StartCoroutine(Delay());
+            if (_life.Currenthealth > 0)
+            {
+                _animator.SetBool("IsHurt", true);
+                _life.take_damages(20);
+                StartCoroutine(Delay());
+            }
         }
     }
 

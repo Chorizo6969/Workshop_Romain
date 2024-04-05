@@ -5,6 +5,7 @@ public class Water : MonoBehaviour
 {
     [SerializeField]
     private GameObject self;
+
     private void Start()
     {
         StartCoroutine(moveWater());
