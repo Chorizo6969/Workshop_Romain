@@ -11,7 +11,7 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            ScreenShake.Instance.Shake(10f, 0.1f);
+            ScreenShake.Instance.Shake(20, 0.1f);
             if (_life.Currenthealth > 25)
             {
                 _life.take_damages(25);
