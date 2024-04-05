@@ -4,6 +4,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class Move : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Move : MonoBehaviour
     [SerializeField] private float jetPackVitesse;
     [SerializeField] private float forceSaut;
     //[SerializeField] private float ;
+
+    [SerializeField] private VisualEffect smokeVFX;
 
     [SerializeField] private GameObject attaqueProjectile;
     [SerializeField] private GameObject bouclierObjet;
@@ -48,7 +51,7 @@ public class Move : MonoBehaviour
         bouclierObjet.SetActive(false);
         bouclierObjet.transform.position = spawner.transform.position;
         bouclierObjet.transform.parent = spawner.transform;
-
+        smokeVFX.Stop();
         particuleFeu.Stop();
 
         animator = GetComponent<Animator>();
@@ -119,8 +122,12 @@ public class Move : MonoBehaviour
     {
         if (stickGaucheAxeX.x != 0 && _canMove == true)
         {
-            
-            
+            if (!utilisejetpack)
+            {
+                smokeVFX.Play();
+
+            }
+
             if (stickGaucheAxeX.x > 0)
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -135,6 +142,7 @@ public class Move : MonoBehaviour
         else
         {
             animator.SetBool("IsRunning", false);
+            smokeVFX.Stop();
         }
 
 
