@@ -18,6 +18,11 @@ public class Move : MonoBehaviour
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject jetPackFlamme;
 
+    [SerializeField] private List<GameObject> swordSong;
+
+    [SerializeField] private AudioSource jetpackSong;
+    [SerializeField] private AudioSource fallingSong;
+
     [SerializeField] private ParticleSystem particuleFeu;
 
     [SerializeField] private bool peutSauter;
@@ -102,7 +107,9 @@ public class Move : MonoBehaviour
         if (callbackContext.started)
         {
             StartCoroutine(Vibration(0.2f, 0.25f));
-            animator.SetBool("IsAttack", true);
+            //animator.SetBool("IsAttack", true);
+            int randomIndex = Random.Range(0, swordSong.Count);
+            swordSong[randomIndex].GetComponent<AudioSource>().Play();
             attaqueProjectile.SetActive(true);
             StartCoroutine(AttendAttack());
         }
@@ -168,6 +175,7 @@ public class Move : MonoBehaviour
             //rb.AddForce(new Vector3(-200,200,0));
         }
         peutSauter = true;
+        fallingSong.Play();
         peutUtiliserJetpack = false;
         if (Gamepad.current != null)
         {
@@ -212,6 +220,6 @@ public class Move : MonoBehaviour
     IEnumerator AttendAttack()
     {
         yield return new WaitForSeconds(0.41f);
-        animator.SetBool("IsAttack", false);
+        //animator.SetBool("IsAttack", false);
     }
 }

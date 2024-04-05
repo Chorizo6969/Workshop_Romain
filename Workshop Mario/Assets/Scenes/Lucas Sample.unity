@@ -6006,6 +6006,8 @@ MonoBehaviour:
   functionName: 6
   slider_latence: {fileID: 108597298}
   Player: {fileID: 1262038164}
+  _animator: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!1 &318681323
 GameObject:
   m_ObjectHideFlags: 0
@@ -8465,6 +8467,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 2134328286}
   _secondTarget: {fileID: 1070617289}
   speed: 2
+  _animator: {fileID: 0}
 --- !u!1 &487987105
 GameObject:
   m_ObjectHideFlags: 0
@@ -12118,6 +12121,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 21581733}
   _secondTarget: {fileID: 205176518}
   speed: 2
+  _animator: {fileID: 0}
 --- !u!50 &787642693
 Rigidbody2D:
   serializedVersion: 4
@@ -12579,6 +12583,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 306863359}
   _secondTarget: {fileID: 1470549186}
   speed: 2
+  _animator: {fileID: 0}
 --- !u!1 &808145977
 GameObject:
   m_ObjectHideFlags: 0
@@ -18899,6 +18904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fddd4e599bc564b8f563d824b48ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   vitese: 5
   jetPackVitesse: 0
   forceSaut: 300
@@ -18906,7 +18912,7 @@ MonoBehaviour:
   bouclierObjet: {fileID: 1544936683}
   spawner: {fileID: 671153837}
   jetPackFlamme: {fileID: 1306707113}
-  swordSongList:
+  swordSong:
   - {fileID: 514418758}
   - {fileID: 1356486111}
   - {fileID: 836170306}
@@ -18916,6 +18922,8 @@ MonoBehaviour:
   peutSauter: 0
   appuiSurBoutonSaut: 0
   peutUtiliserJetpack: 0
+  _canMove: 1
+  anim: {fileID: 0}
   utilisejetpack: 0
   carbu: 100
   maxCarbu: 100
@@ -21931,6 +21939,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 2119834624}
   _secondTarget: {fileID: 681614248}
   speed: 2
+  _animator: {fileID: 0}
 --- !u!1 &1434178835
 GameObject:
   m_ObjectHideFlags: 0
@@ -36360,6 +36369,8 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 1262038164}
   _sword: {fileID: 0}
+  _controller: {fileID: 0}
+  _isSword: 1
 --- !u!1 &1766152951
 GameObject:
   m_ObjectHideFlags: 0
