@@ -107,7 +107,7 @@ public class Move : MonoBehaviour
         if (callbackContext.started)
         {
             StartCoroutine(Vibration(0.2f, 0.25f));
-            //animator.SetBool("IsAttack", true);
+            animator.SetBool("IsAttack", true);
             int randomIndex = Random.Range(0, swordSong.Count);
             swordSong[randomIndex].GetComponent<AudioSource>().Play();
             attaqueProjectile.SetActive(true);
@@ -220,6 +220,6 @@ public class Move : MonoBehaviour
     IEnumerator AttendAttack()
     {
         yield return new WaitForSeconds(0.41f);
-        //animator.SetBool("IsAttack", false);
+        animator.SetBool("IsAttack", false);
     }
 }
